@@ -1,0 +1,20 @@
+{
+  "name": "notification",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Clifford Pereira",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "jubi-express-controller": "^1.0.4",
+    "jubi-mongoose-data-access": "^1.0.1",
+    "mongoose": "^4.10.6",
+    "request": "^2.81.0"
+  }
+}
