@@ -46,17 +46,18 @@ function createSetFactory(model){
 function createSet(model){
     model.dbOpstype="create"
     model.schema=emailAndSmsSchema
-    model.data={
-        emailBody   : model.req.body.emailBody,
-        emailSubject: model.req.body.emailSubject,
-        emailType   : model.req.body.emailType,
-        smsBody     : model.req.body.smsBody,
-        realTime    : model.req.body.realTime,
-        stage       : model.req.body.stage,
-        maxCount    : model.req.body.maxCount,
-        interval    : model.req.body.interval,
-        schemaType  : model.req.body.scheamType
-    }
+    model.data=model.req.body
+//    {
+//        emailBody   : model.req.body.emailBody,
+//        emailSubject: model.req.body.emailSubject,
+//        emailType   : model.req.body.emailType,
+//        smsBody     : model.req.body.smsBody,
+//        realTime    : model.req.body.realTime,
+//        stage       : model.req.body.stage,
+//        maxCount    : model.req.body.maxCount,
+//        interval    : model.req.body.interval,
+//        schemaType  : model.req.body.scheamType
+//    }
     model.callBackFromDataAccess="createdSet"
     model.on("createdSet",()=>{model.info="SUUCESSFULLY CREATED";model.emit(globalCallBackRouter,model)})
     global.emit(globalDataAccessCall,model)
