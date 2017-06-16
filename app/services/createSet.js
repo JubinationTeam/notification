@@ -59,7 +59,7 @@ function createSet(model){
 //        schemaType  : model.req.body.scheamType
 //    }
     model.callBackFromDataAccess="createdSet"
-    model.on("createdSet",()=>{model.info="SUUCESSFULLY CREATED"+model.req.body;model.emit(globalCallBackRouter,model)})
+    model.on("createdSet",()=>{model.info="SUUCESSFULLY CREATED"+JSON.stringify(model.req.body);model.emit(globalCallBackRouter,model)})
     global.emit(globalDataAccessCall,model)
     model.emit(model.dbOpsType,model)
     
