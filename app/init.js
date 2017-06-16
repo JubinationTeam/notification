@@ -21,7 +21,7 @@ const getUrlDef='/:type';
 
 //valid url's
 var validRequestEntities={
-                            "post":["/createSet","/manager"],
+                            "post":["createSet/","manager/"],
                             "get":[]
                          };
      
@@ -51,7 +51,7 @@ function init(){
                         
     controllerInit(routerInitModel);
     genericDataAccess(dataAccessInitModel);
-    createSet(globalEmitter,'createSet',globalDataAccessCall)
+    createSet(globalEmitter,'createSet',globalDataAccessCall,globalCallBackRouter)
   
 }            
 

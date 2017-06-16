@@ -23,10 +23,11 @@ const headers     = {
                 }
 
 // function to instantiate
-function init(globalEmitter,globalCall,globalDACall){
+function init(globalEmitter,globalCall,globalDACall,callback){
     global=globalEmitter;
     globalEmitter.on(globalCall,setup)
     globalDataAccessCall=globalDACall
+    globalCallBackRouter=callback
 }
 
 //function to setup model's event listener
@@ -55,8 +56,11 @@ function createSet(model){
         interval    : model.req.body.interval,
         schemaType  : model.req.body.scheamType
     }
+    model.callBackFromDataAccess="createdSet"
+    model.on("createdSet",()=>{model.info="SUUCESSFULLY CREATED";model.emit(globalCallBackRouter,model)})
     global.emit(globalDataAccessCall,model)
     model.emit(model.dbOpsType,model)
+    
 }
 
 //exports
