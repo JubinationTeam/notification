@@ -34,7 +34,7 @@ function init(globalEmitter,globalCall,globalDACall,callback){
 //function to setup model's event listener
 function setup(model)
 {
-    model.once("service",createSetFactory); 
+    model.once("service",updateSetFactory); 
 }
 
 //function to create a new 'updateSet' function for each model
