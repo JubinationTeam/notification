@@ -54,7 +54,7 @@ function updateSet(model){
     }
     model.callBackFromDataAccess="readSet"
     model.on(model.callBackFromDataAccess,(model)=>{
-                                                        console.log("Im in update set 2")
+                                                        console.log("Im in update set 2"+model.status[0])
                                                         model.dbOpsType="update"
                                                         model.schema=emailAndSmsSchema
                                                         model.id=model.status[0]._id
