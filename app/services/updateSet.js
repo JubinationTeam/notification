@@ -44,7 +44,6 @@ function updateSetFactory(model){
 
 //function to update a data set in the emailANdSms schema of local database 
 function updateSet(model){
-    console.log("Im in update set 1")
     model.dbOpsType="read"
     model.schema=emailAndSmsSchema
     model.offset=0
@@ -54,20 +53,17 @@ function updateSet(model){
     }
     model.callBackFromDataAccess="readSet"
     model.on(model.callBackFromDataAccess,(model)=>{
-                                                        console.log("Im in update set 2")
                                                         model.dbOpsType="update"
                                                         model.schema=emailAndSmsSchema
                                                         model.id=model.status[0]._id
                                                         model.data=model.req.body.newData
-                                                        console.log(model.data)
                                                         model.callBackFromDataAccess="updatedSet"
                                                         model.on(model.callBackFromDataAccess,(model)=>{
-                                                            console.log(model.status)
                                                             model.info="Updated Successfully"
                                                             model.emit(globalCallBackRouter,model)
+                                                        })
                                                         global.emit(globalDataAccessCall,model)
                                                         model.emit(model.dbOpsType,model)
-                                                        })
                                     })
     global.emit(globalDataAccessCall,model)
     model.emit(model.dbOpsType,model)
