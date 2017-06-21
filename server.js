@@ -29,3 +29,5 @@ function init(){
     require('jubi-express-controller').process(app); 
  
 };
+
+debugger
