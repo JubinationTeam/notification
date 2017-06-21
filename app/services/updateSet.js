@@ -46,13 +46,16 @@ function updateSetFactory(model){
 function updateSet(model){
     model.dbOpsType="read"
     model.schema=emailAndSmsSchema
+    model.offset=0
+    model.readLimit=1
     model.data={
         "stage":model.req.body.stageName
     }
     model.callBackFromDataAccess="readSet"
     model.on(model.callBackFromDataAccess,(model)=>{
-                                                        model.dbOpsType="read"
+                                                        model.dbOpsType="update"
                                                         model.schema=emailAndSmsSchema
+                                                        model.id=model.status._id
                                                         model.data=model.req.body.newData
                                                         model.callBackFromDataAccess="updatedSet"
                                                         model.on(model.callBackFromDataAccess,(model)=>{
