@@ -59,7 +59,7 @@ function updateSet(model){
                                                         model.data=model.req.body.newData
                                                         model.callBackFromDataAccess="updatedSet"
                                                         model.on(model.callBackFromDataAccess,(model)=>{
-                                                            model.info="Updated Successfully"
+                                                            model.info="Updated Set Successfully"
                                                             model.emit(globalCallBackRouter,model)
                                                         })
                                                         global.emit(globalDataAccessCall,model)
