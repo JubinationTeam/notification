@@ -44,7 +44,6 @@ function createSetFactory(model){
 
 //function to create a data set in the emailANdSms schema of local database 
 function createSet(model){
-    
     model.dbOpsType="create"
     model.schema=emailAndSmsSchema
     model.data=model.req.body
