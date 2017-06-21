@@ -8,6 +8,7 @@ var controllerInit=require('jubi-express-controller').init;
 
 //services
 var createSet=require('./services/createSet.js').init
+var updateSet=require('./services/updateSet.js').init
 var manager=require('./services/manager.js').init
 var scheduledMailsAndSms=require('./services/scheduledMailsAndSms.js').init
 var emailService=require('./services/emailService.js').init
@@ -25,7 +26,7 @@ const getUrlDef='/:type';
 
 //valid url's
 var validRequestEntities={
-                            "post":["createSet/","manager/"],
+                            "post":["createSet/","updateSet/","manager/"],
                             "get":[]
                          };
      
@@ -56,6 +57,7 @@ function init(){
     controllerInit(routerInitModel);
     genericDataAccess(dataAccessInitModel);
     createSet(globalEmitter,'createSet',globalDataAccessCall,globalCallBackRouter)
+    updateSet(globalEmitter,'updateSet',globalDataAccessCall,globalCallBackRouter)
     manager(globalEmitter,'manager',globalDataAccessCall,globalCallBackRouter)
     scheduledMailsAndSms(globalEmitter,globalDataAccessCall,globalCallBackRouter)
     emailService(globalEmitter,'email',globalDataAccessCall,globalCallBackRouter)

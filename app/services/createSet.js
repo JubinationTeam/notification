@@ -49,6 +49,7 @@ function createSet(model){
     model.data=model.req.body
     model.callBackFromDataAccess="createdSet"
     model.on("createdSet",(model)=>{
+                                        model.info="Created Set Successfully"
                                         model.emit(globalCallBackRouter,model)
                                     })
     global.emit(globalDataAccessCall,model)
