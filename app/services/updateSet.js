@@ -57,7 +57,7 @@ function updateSet(model){
                                                         console.log("Im in update set 2")
                                                         model.dbOpsType="update"
                                                         model.schema=emailAndSmsSchema
-                                                        model.id=model.status._id
+                                                        model.id=model.status[0]._id
                                                         model.data=model.req.body.newData
                                                         model.callBackFromDataAccess="updatedSet"
                                                         model.on(model.callBackFromDataAccess,(model)=>{
