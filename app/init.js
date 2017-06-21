@@ -26,7 +26,7 @@ const getUrlDef='/:type';
 
 //valid url's
 var validRequestEntities={
-                            "post":["createSet/","editSet/","manager/"],
+                            "post":["createSet/","updateSet/","manager/"],
                             "get":[]
                          };
      
@@ -57,7 +57,7 @@ function init(){
     controllerInit(routerInitModel);
     genericDataAccess(dataAccessInitModel);
     createSet(globalEmitter,'createSet',globalDataAccessCall,globalCallBackRouter)
-    updateSet(globalEmitter,'editSet',globalDataAccessCall,globalCallBackRouter)
+    updateSet(globalEmitter,'updateSet',globalDataAccessCall,globalCallBackRouter)
     manager(globalEmitter,'manager',globalDataAccessCall,globalCallBackRouter)
     scheduledMailsAndSms(globalEmitter,globalDataAccessCall,globalCallBackRouter)
     emailService(globalEmitter,'email',globalDataAccessCall,globalCallBackRouter)
