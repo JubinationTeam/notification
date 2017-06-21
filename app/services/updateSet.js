@@ -61,6 +61,8 @@ function updateSet(model){
                                                         model.on(model.callBackFromDataAccess,(model)=>{
                                                             model.info="Updated Successfully"
                                                             model.emit(globalCallBackRouter,model)
+                                                        global.emit(globalDataAccessCall,model)
+                                                        model.emit(model.dbOpsType,model)
                                                         })
                                     })
     global.emit(globalDataAccessCall,model)
