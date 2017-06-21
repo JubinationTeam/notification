@@ -8,6 +8,10 @@ var controllerInit=require('jubi-express-controller').init;
 
 //services
 var createSet=require('./services/createSet.js').init
+var manager=require('./services/manager.js').init
+var scheduledMailsAndSms=require('./services/scheduledMailsAndSms.js').init
+var emailService=require('./services/emailService.js').init
+var smsService=require('./services/smsService.js').init
 
 //global event emitter
 const EventEmitter = require('events');
@@ -52,6 +56,10 @@ function init(){
     controllerInit(routerInitModel);
     genericDataAccess(dataAccessInitModel);
     createSet(globalEmitter,'createSet',globalDataAccessCall,globalCallBackRouter)
+    manager(globalEmitter,'manager',globalDataAccessCall,globalCallBackRouter)
+    scheduledMailsAndSms(globalEmitter,globalDataAccessCall,globalCallBackRouter)
+    emailService(globalEmitter,'email',globalDataAccessCall,globalCallBackRouter)
+    smsService(globalEmitter,'sms',globalDataAccessCall,globalCallBackRouter)
   
 }            
 

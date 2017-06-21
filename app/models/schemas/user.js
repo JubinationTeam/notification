@@ -5,10 +5,12 @@ mongoose.Promise = require('bluebird');
 // creating User schema
 var user={
     id      : String,
+    stage   : String,    
     email   : String,
     mobile  : String,
-    count   : String,
-    stage   : String    
+    count   : Number,
+    sendDay : String,
+    sendHour: String
 };
 
 var userSchema = mongoose.Schema(user);

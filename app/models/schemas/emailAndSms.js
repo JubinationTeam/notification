@@ -9,9 +9,10 @@ var emailAndSms={
     emailType   : String,
     smsBody     : String,
     realTime    : Boolean,
-    stage       : String,
-    maxCount    : String,
-    interval    : String,
+    stage       : { type : String , unique : true, required : true, dropDups: true },
+    maxCount    : Number,
+    days        : Number,
+    hours       : Number,
     schemaType  : String
     };
 
