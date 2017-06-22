@@ -6,16 +6,10 @@ var request = require('request');
 // global event emitter
 var global;
 
-// event names
-var globalDataAccessCall;
-var globalCallBackRouter
-
 // function to instantiate
-function init(globalEmitter,globalCall,globalDACall,callback){
+function init(globalEmitter,globalCall){
     global=globalEmitter;
     globalEmitter.on(globalCall,setup)
-    globalDataAccessCall=globalDACall
-    globalCallBackRouter=callback
 }
 
 //function to setup model's event listener

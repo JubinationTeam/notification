@@ -60,8 +60,8 @@ function init(){
     updateSet(globalEmitter,'updateSet',globalDataAccessCall,globalCallBackRouter)
     manager(globalEmitter,'manager',globalDataAccessCall,globalCallBackRouter)
     scheduledMailsAndSms(globalEmitter,globalDataAccessCall,globalCallBackRouter)
-    emailService(globalEmitter,'email',globalDataAccessCall,globalCallBackRouter)
-    smsService(globalEmitter,'sms',globalDataAccessCall,globalCallBackRouter)
+    emailService(globalEmitter,'email')
+    smsService(globalEmitter,'sms')
   
 }            
 

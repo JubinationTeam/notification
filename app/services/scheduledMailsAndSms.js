@@ -45,6 +45,7 @@ function init(globalEmitter,globalDACall,callback){
     
 }
 
+//fucntion to create a new model for each document and pass it to the 'readEmailAndSmsSchema' function
 function postDataAccessCallback(modelPreLoop){
     
     for(var i=0;i<modelPreLoop.status.length;i++)
@@ -56,6 +57,7 @@ function postDataAccessCallback(modelPreLoop){
     }
 }
 
+//function to read the 'emailAndSms' schema
 function readEmailAndSmsSchema(model){
     
     model.backUp=model.data
@@ -76,6 +78,7 @@ function readEmailAndSmsSchema(model){
     model.emit(model.dbOpsType,model)
 }
 
+//fucntion to call the email and sms services
 function sendEmailSms(model){
     
     if(model.data.count<=model.sendDetails.maxCount){
@@ -100,6 +103,7 @@ function sendEmailSms(model){
     }
 }
 
+//function to update user details
 function updateUserDetails(model){
 
     var updatedSendData = setSendParameters(model.sendDetails.days,model.sendDetails.hours)
@@ -121,6 +125,7 @@ function updateUserDetails(model){
     
 }
 
+//fucntion to set the sending parameters
 function setSendParameters(day,hour){
     
     var currentTime = new Date();

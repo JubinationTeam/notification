@@ -10,10 +10,6 @@ var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
 // global event emitter
 var global;
 
-// event names
-var globalDataAccessCall;
-var globalCallBackRouter
-
 //global variables
 const headers     = {
                         'User-Agent':'Super Agent/0.0.1',
@@ -21,11 +17,9 @@ const headers     = {
                 }
 
 // function to instantiate
-function init(globalEmitter,globalCall,globalDACall,callback){
+function init(globalEmitter,globalCall){
     global=globalEmitter;
     globalEmitter.on(globalCall,setup)
-    globalDataAccessCall=globalDACall
-    globalCallBackRouter=callback
 }
 
 //function to setup model's event listener
@@ -34,7 +28,7 @@ function setup(model)
     model.once("emailService",emailServiceFactory); 
 }
 
-//function to create a new 'mailService' function for each model
+//function to create a new 'emailService' function for each model
 function emailServiceFactory(model){
     new emailService(model);
 }

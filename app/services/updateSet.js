@@ -1,27 +1,14 @@
 'use strict'
 
-//node dependencies
-var request = require('request');
-
 //user-defined dependencies
 var emailAndSmsSchema=require('./../models/schemas/emailAndSms.js')
 
 // global event emitter
 var global;
 
-//Guard Access Variables
-var commonAccessUrl;
-var guardKey;
-
 // event names
 var globalDataAccessCall;
 var globalCallBackRouter
-
-//global variables
-const headers     = {
-                        'User-Agent':'Super Agent/0.0.1',
-                        'Content-Type':'application/json'
-                }
 
 // function to instantiate
 function init(globalEmitter,globalCall,globalDACall,callback){
@@ -42,7 +29,7 @@ function updateSetFactory(model){
     new updateSet(model);
 }
 
-//function to update a data set in the emailANdSms schema of local database 
+//function to update a data set in the 'emailANdSms' schema of local database 
 function updateSet(model){
     model.dbOpsType="read"
     model.schema=emailAndSmsSchema
@@ -51,6 +38,7 @@ function updateSet(model){
     model.data={
         "stage":model.req.body.stageName
     }
+    
     model.callBackFromDataAccess="readSet"
     model.on(model.callBackFromDataAccess,(model)=>{
                                                         model.dbOpsType="update"

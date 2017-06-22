@@ -1,27 +1,14 @@
 'use strict'
 
-//node dependencies
-var request = require('request');
-
 //user-defined dependencies
 var emailAndSmsSchema=require('./../models/schemas/emailAndSms.js')
 
 // global event emitter
 var global;
 
-//Guard Access Variables
-var commonAccessUrl;
-var guardKey;
-
 // event names
 var globalDataAccessCall;
 var globalCallBackRouter
-
-//global variables
-const headers     = {
-                        'User-Agent':'Super Agent/0.0.1',
-                        'Content-Type':'application/json'
-                }
 
 // function to instantiate
 function init(globalEmitter,globalCall,globalDACall,callback){

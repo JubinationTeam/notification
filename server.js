@@ -24,7 +24,7 @@ function init(){
     //mongodb connection
     dbConnection();
     console.log("Server is listening");
-    initFunction();
+    initFunction(); 
     //controller call
     require('jubi-express-controller').process(app); 
  

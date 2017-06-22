@@ -45,6 +45,8 @@ function manager(model){
     }
 }
 
+
+//function to create a new Lead document in the local database
 function createLeadCopy(model){
  
         model.dbOpsType="create"
@@ -63,6 +65,7 @@ function createLeadCopy(model){
     
 }
 
+//function to check if the notitfication is realtime or not
 function stageDependentDecision(model){
     model.dbOpsType="read"
     model.schema=emailAndSmsSchema
@@ -87,6 +90,7 @@ function stageDependentDecision(model){
     model.emit(model.dbOpsType,model)
 }
 
+//function to send an immediate notification
 function sendImmediateEmailOrSms(model){
     if(model.sendDetails.schemaType=="both"){
         global.emit("email",model)
@@ -105,6 +109,7 @@ function sendImmediateEmailOrSms(model){
     updateUserDetails(model)
 }
 
+//function to update user details in the local database
 function updateUserDetails(model){
     model.dbOpsType="read"
     model.schema=user
